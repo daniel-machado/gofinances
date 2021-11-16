@@ -1,6 +1,9 @@
 import 'react-native-gesture-handler';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 import React from 'react';
 import AppLoading from 'expo-app-loading';
+import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -28,6 +31,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer>
+        <StatusBar backgroundColor="transparent" translucent={true}/>
         <AppRoutes />
       </NavigationContainer>
     </ThemeProvider>
