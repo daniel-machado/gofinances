@@ -7,7 +7,9 @@ import { addMonths, subMonths, format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
 import { useFocusEffect } from '@react-navigation/native';
+import { useAuth } from '../../hook/auth';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+
 import theme from '../../global/styles/theme';
 
 import { HistoryCard } from '../../components/HistoryCard';
@@ -25,9 +27,6 @@ import {
   Month,
   LoadContainer,
 } from './styles';
-
-
-
 interface TransactionData { 
   type: 'positive' | 'negative';
   name: string;
@@ -51,6 +50,7 @@ export function Resume() {
   const [selectedDate, setSelectedDate] = useState(new Date);
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([])
 
+  const { user } = useAuth();
   function handleDateChange(action: 'next' | 'prev') { 
     setIsLoading(true);
     if (action === 'next') {
@@ -62,7 +62,7 @@ export function Resume() {
 
   async function loadData() {
     setIsLoading(true);
-    const dataKey = '@gofinances:transactions';
+    const dataKey = `@gofinances:transactions_user:${user.id}`;
     const response = await AsyncStorage.getItem(dataKey);
     const responseFormatted = response ? JSON.parse(response) : [];
     
@@ -190,8 +190,7 @@ export function Resume() {
                 }
           </Content>
         }
-      
-    
+       
     </Container>
   )
 }
