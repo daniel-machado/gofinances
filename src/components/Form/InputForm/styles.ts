@@ -7,7 +7,7 @@ export const Container = styled.View`
 
 export const Error = styled.Text`
   font-size: ${RFValue(14)}px;
-  font-family: ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => theme.colors.attencion};
+  font-family: ${props => props.theme.fonts.regular};
+  color: ${props => props.theme.colors.attencion};
   margin: 7px 0;
 `;

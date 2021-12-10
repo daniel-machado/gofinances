@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
+import { ThemeContext } from 'styled-components/native';
 import { ActivityIndicator, Alert, Platform } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 import AppleSvg from '../../assets/apple.svg';
 import GoogleSvg from '../../assets/google.svg';
 import LogoSvg from '../../assets/logo.svg';
-import theme from '../../global/styles/theme';
 
 import { useAuth } from '../../hook/auth';
 
@@ -21,9 +21,8 @@ import {
   FooterWrapper
 } from './styles';
 
-
-
 export function SignIn() { 
+  const {colors } = useContext(ThemeContext);
   const { signInWithGoogle, signInWithApple } = useAuth();
   const [isLoading, setIsLoading] = useState(false); 
 
@@ -88,7 +87,7 @@ export function SignIn() {
 
         {isLoading &&
           <ActivityIndicator
-          color={theme.colors.shape}
+          color={colors.shape}
           style={{marginTop: 18}}
           />}
 

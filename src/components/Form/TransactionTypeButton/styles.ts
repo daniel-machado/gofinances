@@ -16,18 +16,18 @@ export const Container = Styled.View<ContainerProps>`
   width: 48%;
   border-width: ${({ isActive }) => isActive ? 0 : 1.5}px;
   border-style: solid;
-  border-color: ${({ theme }) => theme.colors.text };
+  border-color: ${props => props.theme.colors.text };
   
   border-radius: 5px;
 
 
 
   ${({ isActive, type }) => isActive && type === 'up' && css`
-    background-color: ${({ theme }) => theme.colors.sucess_light};
+    background-color: ${props => props.theme.colors.sucess_light};
   `};
 
   ${({ isActive, type }) => isActive && type === 'down' && css`
-    background-color: ${({ theme }) => theme.colors.attencion_light};
+    background-color: ${props => props.theme.colors.attencion_light};
   `};
 `;
 
@@ -49,6 +49,6 @@ export const Icon = Styled(Feather)<IconProps>`
 `;
 
 export const Title = Styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular };
+  font-family: ${props => props.theme.fonts.regular };
   font-size: ${RFValue(14)}px;
 `;

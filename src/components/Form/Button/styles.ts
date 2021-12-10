@@ -4,7 +4,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = Styled(RectButton)`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${props => props.theme.colors.secondary};
 
   border-radius: 5px;
   align-items: center;
@@ -13,8 +13,8 @@ export const Container = Styled(RectButton)`
 `;
 
 export const Title = Styled.Text`
-  font-family: ${({ theme }) => theme.fonts.medium};
+  font-family: ${props => props.theme.fonts.medium};
   font-size: ${RFValue(14)}px;
 
-  color: ${({ theme }) => theme.colors.shape};
+  color: ${props => props.theme.colors.shape};
 `;

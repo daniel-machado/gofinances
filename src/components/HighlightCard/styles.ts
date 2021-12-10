@@ -22,7 +22,7 @@ export const Header = styled.View`
 `;
 
 export const Title = styled.Text<TypeProps>`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: ${RFValue(14)}px;
   color: ${({ theme, type }) =>
     type === 'total' ? theme.colors.shape : theme.colors.text_dark};
@@ -32,13 +32,13 @@ export const Icon = styled(Feather)<TypeProps>`
   font-size: ${RFValue(40)}px;
   
   ${({ type }) => type === 'up' && css`
-    color: ${({ theme }) => theme.colors.sucess}
+    color: ${props => props.theme.colors.sucess}
   `};
   ${({ type }) => type === 'down' && css`
-    color: ${({ theme }) => theme.colors.attencion}
+    color: ${props => props.theme.colors.attencion}
   `};
   ${({ type }) => type === 'total' && css`
-    color: ${({ theme }) => theme.colors.shape}
+    color: ${props => props.theme.colors.shape}
   `};
 `;
 
@@ -47,7 +47,7 @@ export const Footer = styled.View`
 `;
 
 export const Amount = styled.Text<TypeProps>`
-  font-family: ${({ theme }) => theme.fonts.medium};
+  font-family: ${props => props.theme.fonts.medium};
   font-size: ${RFValue(32)}px; 
   color: ${({ theme, type }) =>
     type === 'total' ? theme.colors.shape : theme.colors.text_dark};
@@ -55,7 +55,7 @@ export const Amount = styled.Text<TypeProps>`
 `;
 
 export const LastTransaction = styled.Text<TypeProps>`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: ${RFValue(12)}px;
   color: ${({ theme, type }) =>
     type === 'total' ? theme.colors.shape : theme.colors.text};

@@ -8,7 +8,7 @@ interface ContainerProps {
 export const Container = styled.View<ContainerProps>`
   width: 100%;
 
-  background-color: ${({ theme }) => theme.colors.shape};
+  background-color: ${props => props.theme.colors.shape};
 
   flex-direction: row;
   justify-content: space-between;
@@ -24,10 +24,10 @@ export const Container = styled.View<ContainerProps>`
 
 
 export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: ${RFValue(15)}px;
 `;
 export const Amount = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.bold};
+  font-family: ${props => props.theme.fonts.bold};
   font-size: ${RFValue(15)}px;
 `;
