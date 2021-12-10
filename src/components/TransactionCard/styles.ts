@@ -1,4 +1,4 @@
-import styled, { ThemeContext } from 'styled-components/native';
+import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 
@@ -8,7 +8,7 @@ interface TransactionProps {
 
 
 export const Container = styled.View`
-  background-color: ${({ theme }) => theme.colors.shape};
+  background-color: ${props => props.theme.colors.shape};
   border-radius: 5px;
 
   padding: 17px 24px;
@@ -16,12 +16,12 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: ${RFValue(14)}px;
 `;
 
 export const Amount = styled.Text<TransactionProps>`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: ${RFValue(20)}px;
   color: ${({ theme, type }) =>
     type === 'positive' ? theme.colors.sucess : theme.colors.attencion};
@@ -43,18 +43,18 @@ export const Category = styled.View`
 
 export const Icon = styled(Feather)`
   font-size: ${RFValue(20)}px;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${props => props.theme.colors.text};
 `;
 
 export const CategoryName = styled.Text`
   font-size: ${RFValue(14)}px;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${props => props.theme.colors.text};
 
   margin-left: 17px;
 `;
 
 export const Date = styled.Text`
 font-size: ${RFValue(14)}px;
-  color: ${({ theme }) => theme.colors.text};
+  color: ${props => props.theme.colors.text};
 
 `;

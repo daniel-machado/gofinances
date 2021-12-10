@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
+import { ThemeContext } from 'styled-components/native';
 import { ActivityIndicator } from 'react-native';
 import { HighlightCard } from '../../components/HighlightCard';
 
@@ -7,8 +8,6 @@ import { useAuth } from '../../hook/auth';
 
 import { TransactionCards, TransactionCardProps } from '../../components/TransactionCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import theme from '../../global/styles/theme';
 
 import {
   Container,
@@ -41,6 +40,9 @@ interface HighlightData {
 }
 
 export function Dashboard() {
+
+  const { colors } = useContext(ThemeContext);
+
   const [isLoading, setIsLoading] = useState(true);
   const [transactions, setTransactions] = useState<DataListProps[]>([]);
   const [highlightData, setHighlightData] = useState<HighlightData>({} as HighlightData);
@@ -166,7 +168,7 @@ export function Dashboard() {
       {
         isLoading ? 
           <LoadContainer>
-            <ActivityIndicator color={ theme.colors.secondary } size={40}/>
+            <ActivityIndicator color={ colors.secondary } size={40}/>
           </LoadContainer> :
         <>  
             <Header>

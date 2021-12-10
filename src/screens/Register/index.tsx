@@ -130,8 +130,7 @@ export function Register() {
       </Header>
 
       <Form>
-        <Fields>
-         
+        <Fields>     
           <InputForm
               name="name"
               control={control}

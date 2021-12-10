@@ -3,8 +3,6 @@ import { Feather } from '@expo/vector-icons';
 import Styled from 'styled-components/native';
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import theme from '../../global/styles/theme';
-
 interface CategoryProps { 
   isActive: boolean;
 }
@@ -12,14 +10,14 @@ interface CategoryProps {
 
 export const Container = Styled(GestureHandlerRootView)`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${props => props.theme.colors.background};
 `;
 
 export const Header = Styled.View`
   width: 100%;
   height: ${RFValue(113)}px;
 
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${props => props.theme.colors.primary};
 
   align-items: center;
   justify-content: flex-end;
@@ -28,8 +26,8 @@ export const Header = Styled.View`
 `;
 
 export const Title = Styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => theme.colors.shape};
+  font-family: ${props => props.theme.fonts.regular};
+  color: ${props => props.theme.colors.shape};
   font-size: ${RFValue(18)}px;
 `;
 
@@ -39,9 +37,10 @@ export const Category = Styled.TouchableOpacity<CategoryProps>`
 
   flex-direction: row;
   align-items: center;
-
-  background-color: ${({ isActive }) => 
-    isActive ? theme.colors.secondary_light : theme.colors.background
+  
+  color: ${props => props.theme.colors.shape};
+  background-color: ${({ isActive, theme}) => 
+    isActive ? theme.colors.secondary_light :  theme.colors.background
   };
 `;
 
@@ -51,14 +50,14 @@ export const Icon = Styled(Feather)`
 `;
 
 export const Name = Styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular}
+  font-family: ${props => props.theme.fonts.regular}
   font-size: ${RFValue(14)}px;
 `;
 
 export const Separator = Styled.View`
   height: 1px;
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.text};
+  background-color: ${props => props.theme.colors.text};
 `;
 
 export const Footer = Styled.View`

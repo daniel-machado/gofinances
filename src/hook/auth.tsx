@@ -53,7 +53,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         setUser(userLogged);
         await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error);
     }
   }
@@ -80,7 +80,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         setUser(userLogged);
         await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }
-    } catch (error) {
+    } catch (error: any) {
       throw new Error(error);
     }
   }

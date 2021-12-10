@@ -1,4 +1,8 @@
-export default {
+import { DefaultTheme } from 'styled-components/native';
+
+const light: DefaultTheme = {
+  title: 'light',
+
   colors: {
     primary: '#5636D3',
     
@@ -23,6 +27,6 @@ export default {
     medium: 'Poppins_500Medium',
     bold: 'Poppins_700Bold'
   }
-
-
 }
+
+export default light;

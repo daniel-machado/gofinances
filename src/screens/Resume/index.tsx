@@ -1,4 +1,5 @@
-import React, { useState, useCallback} from 'react';
+import React, { useState, useCallback, useContext } from 'react';
+import { ThemeContext } from 'styled-components/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ActivityIndicator } from 'react-native';
 import { VictoryPie } from 'victory-native';
@@ -9,8 +10,6 @@ import { ptBR } from 'date-fns/locale';
 import { useFocusEffect } from '@react-navigation/native';
 import { useAuth } from '../../hook/auth';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-
-import theme from '../../global/styles/theme';
 
 import { HistoryCard } from '../../components/HistoryCard';
 import { categories } from '../../Utils/categories';
@@ -46,6 +45,7 @@ interface CategoryData {
 
 export function Resume() { 
 
+  const { colors } = useContext(ThemeContext);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date);
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([])
@@ -130,7 +130,7 @@ export function Resume() {
           isLoading ? 
             <LoadContainer>
               <ActivityIndicator
-                color={theme.colors.primary}
+                color={colors.primary}
                 size="large"
               />
             </LoadContainer> :
@@ -169,7 +169,7 @@ export function Resume() {
                       labels: {
                         fontSize: RFValue(18),
                         fontWeight: 'bold',
-                        fill: theme.colors.shape
+                        fill: colors.shape
                       }
                     }}
                     labelRadius={50}

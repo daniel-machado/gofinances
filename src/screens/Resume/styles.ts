@@ -5,11 +5,11 @@ import { Feather } from '@expo/vector-icons';
 
 export const Container = Styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.colors.background} ;
+  background-color: ${props => props.theme.colors.background} ;
 `;
 
 export const Header = Styled.View`
-  background-color: ${({ theme }) => theme.colors.primary };
+  background-color: ${props => props.theme.colors.primary };
 
   width: 100%
   height: ${RFValue(113)}px;
@@ -20,9 +20,9 @@ export const Header = Styled.View`
 `;
 
 export const Title = Styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular };
+  font-family: ${props => props.theme.fonts.regular };
   font-size: ${RFValue(18)}px;
-  color: ${({ theme }) => theme.colors.shape };
+  color: ${props => props.theme.colors.shape };
 `;
 
 export const Content = Styled.ScrollView``;
@@ -49,7 +49,7 @@ export const MonthSelectIcon = Styled(Feather)`
 `;
 
 export const Month = Styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
+  font-family: ${props => props.theme.fonts.regular};
   font-size: ${RFValue(20)}px;
 `;
 
